@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     Vector2 playerInput;
     Vector2 inputNormalized;
     Animator animator;
-    bool facingRight;
+    GameObject storeInventoryUI;
+    bool facingRight = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //storeInventoryUI = GameObject.Find("StoreInventoryUI");
     }
 
     // Update is called once per frame
@@ -57,6 +59,21 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-
+        if(other.tag == "Store")
+        {
+            if(Input.GetKey(KeyCode.F))
+            {
+                CanvasLoader.ShowStoreInventory();
+            }
+        }
     }
+
+void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Store")
+        {
+            CanvasLoader.CloseStoreInventory();
+        }
+    }
+    
 }
