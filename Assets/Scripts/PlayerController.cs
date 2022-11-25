@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     Vector2 playerInput;
     Vector2 inputNormalized;
+    Animator animator;
+    bool facingRight;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,12 +25,38 @@ public class PlayerController : MonoBehaviour
         playerInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         inputNormalized = playerInput.normalized;
         rb.velocity = inputNormalized * speed;
+
+        if(rb.velocity.magnitude > 0)
+        {
+            animator.SetTrigger("Walking");
+        } 
+        else
+        {
+            animator.SetTrigger("Idle");
+        }
+        
+            if (playerInput.x != 0 && !facingRight)
+            {
+                FlipCharacter();
+            }
+            if (playerInput.x == 0f  && facingRight)
+            {
+                FlipCharacter();
+            }
+
     }
 
+    void FlipCharacter()
+    {
+        Vector3 presentScale = transform.localScale;
+        presentScale.x *= -1;
+        transform.localScale = presentScale;
 
+        facingRight = !facingRight; 
+    }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        
+
     }
 }
