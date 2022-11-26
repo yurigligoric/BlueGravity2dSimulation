@@ -13,12 +13,15 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     GameObject storeInventoryUI;
     bool facingRight = true;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //storeInventoryUI = GameObject.Find("StoreInventoryUI");
+        
     }
 
     // Update is called once per frame
@@ -28,23 +31,25 @@ public class PlayerController : MonoBehaviour
         inputNormalized = playerInput.normalized;
         rb.velocity = inputNormalized * speed;
 
+        
+        
         if(rb.velocity.magnitude > 0)
         {
-            animator.SetTrigger("Walking");
+            animator.SetTrigger("Walk");
         } 
         else
         {
             animator.SetTrigger("Idle");
         }
         
-            if (playerInput.x != 0 && !facingRight)
-            {
-                FlipCharacter();
-            }
-            if (playerInput.x == 0f  && facingRight)
-            {
-                FlipCharacter();
-            }
+        if (playerInput.x != 0 && !facingRight)
+        {
+            FlipCharacter();
+        }
+        if (playerInput.x == 0f  && facingRight)
+        {
+            FlipCharacter();
+        }
 
     }
 
