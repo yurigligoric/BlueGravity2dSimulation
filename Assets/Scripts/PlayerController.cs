@@ -32,9 +32,7 @@ public class PlayerController : MonoBehaviour
     public Sprite bodyDefault;
     public Sprite headFacing;   
     bool walkedUp = false;
-    float upDown;
-    float leftRight;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -50,8 +48,6 @@ public class PlayerController : MonoBehaviour
     {
         
         playerInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        leftRight = Input.GetAxis("Horizontal");
-        upDown = Input.GetAxis("Vertical");
         inputNormalized = playerInput.normalized;
         rb.velocity = inputNormalized * speed;
 
@@ -75,7 +71,7 @@ public class PlayerController : MonoBehaviour
             FlipCharacter();
         }
 
-        if( !walkedUp && upDown > 0)
+        if( !walkedUp && playerInput.y > 0)
         {
             head.sprite = backHead;
             walkedUp = true;
@@ -102,7 +98,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        if(walkedUp && upDown <= 0) 
+        if(walkedUp && playerInput.y <= 0) 
         {
         
             head.sprite = headFacing;     
