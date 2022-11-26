@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangeClothes : MonoBehaviour
 {
     
+    
     public GameObject body;
     public GameObject armL;
     public GameObject armR;

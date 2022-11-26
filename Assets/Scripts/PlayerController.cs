@@ -14,20 +14,44 @@ public class PlayerController : MonoBehaviour
     GameObject storeInventoryUI;
     bool facingRight = true;
 
+    private SpriteRenderer body;
+    private SpriteRenderer head;
+    public GameObject _head;
+    public GameObject _body;
+    public Sprite backHead;
+    public Sprite pinkBack;   
+    public Sprite orangeBack;   
+    public Sprite blueBack;   
+    public Sprite yellowBack;   
+    public Sprite bodyBack;
 
+    public Sprite bodyPink;   
+    public Sprite bodyOrange;   
+    public Sprite bodyBlue;   
+    public Sprite bodyYellow;   
+    public Sprite bodyDefault;
+    public Sprite headFacing;   
+    bool walkedUp = false;
+    float upDown;
+    float leftRight;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        body = _body.GetComponent<SpriteRenderer>();
+        head = _head.GetComponent<SpriteRenderer>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         playerInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        leftRight = Input.GetAxis("Horizontal");
+        upDown = Input.GetAxis("Vertical");
         inputNormalized = playerInput.normalized;
         rb.velocity = inputNormalized * speed;
 
@@ -49,6 +73,61 @@ public class PlayerController : MonoBehaviour
         if (playerInput.x == 0f  && facingRight)
         {
             FlipCharacter();
+        }
+
+        if( !walkedUp && upDown > 0)
+        {
+            head.sprite = backHead;
+            walkedUp = true;
+
+            if(body.sprite.name == "bodyPink")
+            {
+                body.sprite = pinkBack;
+            }
+            if(body.sprite.name == "bodyBlue")
+            {
+                body.sprite = blueBack;
+            }
+            if(body.sprite.name == "bodyOrange")
+            {
+                body.sprite = orangeBack;
+            }
+            if(body.sprite.name == "bodyYellow")
+            {
+                body.sprite = yellowBack;
+            }
+            if(body.sprite.name == "body")
+            {
+                body.sprite = bodyBack;
+            }
+        }
+        
+        if(walkedUp && upDown <= 0) 
+        {
+        
+            head.sprite = headFacing;     
+            
+            if(body.sprite.name == "pinkBack")
+            {
+                body.sprite = bodyPink;
+            }
+            if(body.sprite.name == "blueBack")
+            {
+                body.sprite = bodyBlue;
+            }
+            if(body.sprite.name == "orangeBack")
+            {
+                body.sprite = bodyOrange;
+            }
+            if(body.sprite.name == "yellowBack")
+            {
+                body.sprite = bodyYellow;
+            }
+            if(body.sprite.name == "bodyBack")
+            {
+                body.sprite = bodyDefault;
+            }
+            walkedUp = false;
         }
 
     }

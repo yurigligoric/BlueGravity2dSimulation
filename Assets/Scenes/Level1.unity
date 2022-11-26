@@ -2212,6 +2212,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  _head: {fileID: 0}
+  _body: {fileID: 0}
+  backHead: {fileID: 0}
+  pinkBack: {fileID: 0}
+  orangeBack: {fileID: 0}
+  blueBack: {fileID: 0}
+  yellowBack: {fileID: 0}
+  bodyBack: {fileID: 0}
+  bodyPink: {fileID: 0}
+  bodyOrange: {fileID: 0}
+  bodyBlue: {fileID: 0}
+  bodyYellow: {fileID: 0}
+  bodyDefault: {fileID: 0}
+  headFacing: {fileID: 0}
 --- !u!50 &84902725
 Rigidbody2D:
   serializedVersion: 4
@@ -16280,6 +16294,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  _head: {fileID: 748278385}
+  _body: {fileID: 1994802643}
+  backHead: {fileID: 21300000, guid: 6182ea7fe4108824782b339196e48ad5, type: 3}
+  pinkBack: {fileID: 21300000, guid: e58498187e2481646896aebf2635bf17, type: 3}
+  orangeBack: {fileID: 21300000, guid: cf0483ab89b1be44db6eb116a409859f, type: 3}
+  blueBack: {fileID: 21300000, guid: 8e3455fa35eaf7142878750b4954574d, type: 3}
+  yellowBack: {fileID: 21300000, guid: ea0577ae98aa4334aa62d7f2ddab3bc4, type: 3}
+  bodyBack: {fileID: 21300000, guid: b51bc8a557360274da088e680d436662, type: 3}
+  bodyPink: {fileID: 21300000, guid: a0b15de91ec37234383be46f45573893, type: 3}
+  bodyOrange: {fileID: 21300000, guid: 3ef0d219ab5874e4f9384785def289ef, type: 3}
+  bodyBlue: {fileID: 21300000, guid: 7f06963f6861b724cbdd8645613f8e55, type: 3}
+  bodyYellow: {fileID: 21300000, guid: d9d462dd0f46b1346a2fbef89a24fea0, type: 3}
+  bodyDefault: {fileID: 21300000, guid: ad5058228b1da814b8a219d8a35bebed, type: 3}
+  headFacing: {fileID: 21300000, guid: 5467bb1cb18a5b54a86e99b5098e055d, type: 3}
 --- !u!1 &705553689
 GameObject:
   m_ObjectHideFlags: 0
@@ -17217,6 +17245,7 @@ GameObject:
   - component: {fileID: 725602100}
   - component: {fileID: 725602102}
   - component: {fileID: 725602101}
+  - component: {fileID: 725602103}
   m_Layer: 0
   m_Name: Idle1
   m_TagString: Store
@@ -17324,9 +17353,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.55}
   serializedVersion: 2
-  m_Radius: 2.77
+  m_Radius: 1.19
 --- !u!61 &725602102
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17338,6 +17367,32 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.34, y: 1.88}
+    newSize: {x: 1.34, y: 1.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.34, y: 1.88}
+  m_EdgeRadius: 0
+--- !u!61 &725602103
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725602097}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -17731,7 +17786,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1.13, y: 1.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
