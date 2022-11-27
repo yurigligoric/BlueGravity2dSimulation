@@ -144,6 +144,13 @@ public class PlayerController : MonoBehaviour
             if(Input.GetKey(KeyCode.F))
             {
                 CanvasLoader.ShowStoreInventory();
+                CanvasLoader.CloseSellUI();
+            }
+
+            if(Input.GetKey(KeyCode.G))
+            {
+                CanvasLoader.ShowSellUI();
+                CanvasLoader.CloseStoreInventory();
             }
         }
     }
@@ -153,6 +160,7 @@ void OnTriggerExit2D(Collider2D other)
         if(other.tag == "Store")
         {
             CanvasLoader.CloseStoreInventory();
+            CanvasLoader.CloseSellUI();
         }
     }
     

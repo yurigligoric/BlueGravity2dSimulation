@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Store
   - StoreUI
+  - SellUI
   layers:
   - Default
   - TransparentFX
