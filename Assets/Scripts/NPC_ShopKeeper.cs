@@ -17,7 +17,7 @@ public class NPC_ShopKeeper : MonoBehaviour
     int visited;
 
     int index;
-    float speed = 4;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,6 @@ public class NPC_ShopKeeper : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     void OnTriggerStay2D(Collider2D other)

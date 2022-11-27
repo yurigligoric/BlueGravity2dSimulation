@@ -1,6 +1,9 @@
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ChangeClothes : MonoBehaviour
 {
@@ -22,6 +25,9 @@ public class ChangeClothes : MonoBehaviour
     SpriteRenderer playerShirt;
     SpriteRenderer playerLeftArm;
     SpriteRenderer playerRightArm;
+    public TextMeshProUGUI cash;
+    float amount;
+
     
     // Start is called before the first frame update
     void Start()
@@ -30,6 +36,8 @@ public class ChangeClothes : MonoBehaviour
         playerShirt = body.GetComponent<SpriteRenderer>();
         playerLeftArm = armL.GetComponent<SpriteRenderer>();
         playerRightArm = armR.GetComponent<SpriteRenderer>();
+        
+        
     }
 
     // Update is called once per frame
@@ -38,17 +46,36 @@ public class ChangeClothes : MonoBehaviour
         
     }
 
+    // public void CloseWarningUI()
+    // {
+    //     warningNoCash.SetActive(false);
+    // }
+
     public void ChangeShirt(int a)
     {
+        amount = float.Parse(cash.text);
         if(a == 1)
-        {        
+        {   
+            if (float.Parse(cash.text) < 11f)
+            {
+                CanvasLoader.ShowWarningUI();
+                return;     
+            }
+            amount -= 11f; 
+            cash.text = amount.ToString("#,##0");
             playerShirt.sprite = orangeT;
             playerLeftArm.sprite = orangeArm; 
             playerRightArm.sprite = orangeArm;
-            
         }
         else if (a == 2)
         {
+            if (float.Parse(cash.text) < 12f)
+            {
+                CanvasLoader.ShowWarningUI();
+                return;     
+            }
+            amount -= 12f; 
+            cash.text = amount.ToString("#,##0");
             playerShirt.sprite = pinkT;
             playerLeftArm.sprite = pinkArm; 
             playerRightArm.sprite = pinkArm;
@@ -56,6 +83,13 @@ public class ChangeClothes : MonoBehaviour
         }
         else if (a == 3)
         {
+            if (float.Parse(cash.text) < 12f)
+            {
+                CanvasLoader.ShowWarningUI();
+                return;     
+            }
+            amount -= 12f; 
+            cash.text = amount.ToString("#,##0");
             playerShirt.sprite = blueT;
             playerLeftArm.sprite = blueArm; 
             playerRightArm.sprite = blueArm;
@@ -63,6 +97,14 @@ public class ChangeClothes : MonoBehaviour
         }
         else if (a == 4)
         {
+            if (float.Parse(cash.text) < 13f)
+            {
+                CanvasLoader.ShowWarningUI();
+                return;
+            }
+            
+            amount -= 13f; 
+            cash.text = amount.ToString("#,##0");
             playerShirt.sprite = yellowT;
             playerLeftArm.sprite = yellowArm; 
             playerRightArm.sprite = yellowArm;
@@ -70,6 +112,13 @@ public class ChangeClothes : MonoBehaviour
         }
         else
         {
+            if (float.Parse(cash.text) < 9f)
+            {
+                CanvasLoader.ShowWarningUI();
+                return;
+            }
+            amount -= 9f; 
+            cash.text = amount.ToString("#,##0");
             playerShirt.sprite = defaultGreen;
             playerLeftArm.sprite = defaultArmGreen; 
             playerRightArm.sprite = defaultArmGreen;

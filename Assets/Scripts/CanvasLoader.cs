@@ -7,6 +7,7 @@ public class CanvasLoader : MonoBehaviour
     
     public static GameObject storeInventory;
     public static GameObject storeSell;
+    public static GameObject warningUI;
 
     void Start()
     {
@@ -20,6 +21,12 @@ public class CanvasLoader : MonoBehaviour
         if(storeSell != null)
         {
             storeSell.SetActive(false);
+        }
+
+        warningUI = GameObject.FindGameObjectWithTag("WarningUI");
+        if(warningUI != null)
+        {
+            warningUI.SetActive(false);
         }
 
     }
@@ -42,6 +49,15 @@ public class CanvasLoader : MonoBehaviour
     public static void CloseSellUI()
     {
         storeSell.SetActive(false);
+    }
+
+    public static void CloseWarningUI()
+    {
+        warningUI.SetActive(false);
+    }
+    public static void ShowWarningUI()
+    {
+        warningUI.SetActive(true);
     }
 
 }

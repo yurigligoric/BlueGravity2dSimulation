@@ -161,6 +161,7 @@ void OnTriggerExit2D(Collider2D other)
         {
             CanvasLoader.CloseStoreInventory();
             CanvasLoader.CloseSellUI();
+            CanvasLoader.CloseWarningUI();
         }
     }
     
