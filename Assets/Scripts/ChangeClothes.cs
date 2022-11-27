@@ -7,7 +7,7 @@ using TMPro;
 
 public class ChangeClothes : MonoBehaviour
 {
-    
+  
     
     public GameObject body;
     public GameObject armL;
@@ -40,16 +40,7 @@ public class ChangeClothes : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // public void CloseWarningUI()
-    // {
-    //     warningNoCash.SetActive(false);
-    // }
+      
 
     public void ChangeShirt(int a)
     {
